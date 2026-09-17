@@ -14,8 +14,13 @@ main:
     movi    r5, 0x40           # segment pattern for digit '0' (active-low)
     stwio   r5, 0(r2)          # store the pattern to the hex0 PIO register
 
-loop:
+get_button:
 	ldwio	r6, 0(r3)
-	cmp		r6, 0
-	br loop
+    andi    r7, r6, 0x2
+	bne     r7, r0, get_button
+
+get_switch:
+    ldwio   r6, 0(r4)
+    andi    r7, r6, 0x1
+    beq     r7, r0, decrement_path
 
