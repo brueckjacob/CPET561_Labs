@@ -1,6 +1,6 @@
 .section .data
 HEX0:
-    byte 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x2, 0x78, 0x0, 0x18
+    .byte 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x2, 0x78, 0x0, 0x18
 
 
 .section .text
@@ -13,19 +13,43 @@ HEX0:
 .type main, function
 
 main:
-    movia   r2, HEX0_BASE	   # load the hex0 PIO base address into r2
+    movia   r2, HEX0_BASE	        # load the hex0 PIO base address into r2
     movia   r3, PUSHBUTTONS_BASE
     movia   r4, SWITCHES_BASE
-    movi    r5, 0x40           # segment pattern for digit '0' (active-low)
-    stwio   r5, 0(r2)          # store the pattern to the hex0 PIO register
+    movi    r5, 0                   # index for the hex table
+    movia   r9, HEX0
+    add     r9, r9, r5
+    ldb     r10, 0(r9)
+    stwio   r10, 0(r2)              # store the pattern to the hex0 PIO register
 
-get_button:
+get_button:                         # checks and stores pushbutton value
 	ldwio	r6, 0(r3)
     andi    r7, r6, 0x2
 	bne     r7, r0, get_button
 
-get_switch:
+get_switch:                         # checks and stores switch value
     ldwio   r6, 0(r4)
     andi    r7, r6, 0x1
     beq     r7, r0, decrement_path
 
+increment_path:                     # increases HEX0 value by 1
+    addi    r5, r5, 1
+    movia   r9, HEX0
+    add     r9, r9, r5
+    ldb     r10, 0(r9)
+    stwio   r10, 0(r2)
+
+    br wait_release
+
+decrement_path:                     # decreases HEX0 value by 1
+    subi    r5, r5, 1
+    movia   r9, HEX0
+    add     r9, r9, r5
+    ldb     r10, 0(r9)
+    stwio   r10, 0(r2)
+
+wait_release:                       # waits for the pushbutton to release
+    ldwio   r6, 0(r3)
+    andi    r7, r6, 0x2
+    beq     r7, r0, wait_release
+    br      get_button
