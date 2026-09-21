@@ -1,6 +1,6 @@
 .section .data
 HEX0:
-    .byte 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x2, 0x78, 0x0, 0x18
+    .byte 0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x10
 
 
 .section .text
@@ -23,9 +23,9 @@ main:
     stwio   r10, 0(r2)              # store the pattern to the hex0 PIO register
 
 get_button:                         # checks and stores pushbutton value
-	ldwio	r6, 0(r3)
+    ldwio	  r6, 0(r3)
     andi    r7, r6, 0x2
-	bne     r7, r0, get_button
+    bne     r7, r0, get_button
 
 get_switch:                         # checks and stores switch value
     ldwio   r6, 0(r4)
@@ -34,17 +34,28 @@ get_switch:                         # checks and stores switch value
 
 increment_path:                     # increases HEX0 value by 1
     addi    r5, r5, 1
+    movi	r11, 10
+    blt		r5, r11, inc_ok
+    movi	r5, 0
+
+inc_ok:
     movia   r9, HEX0
     add     r9, r9, r5
     ldb     r10, 0(r9)
     stwio   r10, 0(r2)
-
     br wait_release
 
 decrement_path:                     # decreases HEX0 value by 1
     subi    r5, r5, 1
-    movia   r9, HEX0
+    movi 	r11, 0
+    blt		r5, r11, dec_wrap
     add     r9, r9, r5
+    ldb     r10, 0(r9)
+    stwio   r10, 0(r2)
+    br wait_release
+
+dec_wrap:
+    movia   r9, HEX0
     ldb     r10, 0(r9)
     stwio   r10, 0(r2)
 

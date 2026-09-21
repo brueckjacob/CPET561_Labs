@@ -144,7 +144,7 @@ ELF := nios_software.elf
 # Paths to C, C++, and assembly source files.
 C_SRCS :=
 CXX_SRCS :=
-ASM_SRCS :=
+ASM_SRCS := main.s
 
 
 # Path to root of object file tree.
