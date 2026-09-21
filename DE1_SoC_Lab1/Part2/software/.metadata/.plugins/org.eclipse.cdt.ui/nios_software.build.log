@@ -1,0 +1,18 @@
+01:09:14 **** Build of configuration Nios II for project nios_software ****
+make all 
+Info: Building ../nios_software_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../nios_software_bsp/
+[BSP build complete]
+Info: Compiling lights_main.c to obj/default/lights_main.o
+nios2-elf-gcc -xc -MP -MMD -c -I../nios_software_bsp//HAL/inc -I../nios_software_bsp/ -I../nios_software_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/lights_main.o lights_main.c
+Info: Linking nios_software.elf
+nios2-elf-g++  -T'../nios_software_bsp//linker.x' -msys-crt0='../nios_software_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../nios_software_bsp/   -Wl,-Map=nios_software.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o nios_software.elf obj/default/lights_main.o -lm -msys-lib=m
+nios2-elf-insert nios_software.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 1 --sidp 0x11020 --timestamp 1789964963 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name nios_system --quartus_project_dir "C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab1/Part2" --jdi ../..//output_files/lightsWithNios.jdi --sopcinfo C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab1/Part2/software/nios_software_bsp/../../nios_system.sopcinfo
+Info: (nios_software.elf) 15 KBytes program size (code + initialized data).
+Info:                     11 KBytes free for stack + heap.
+Info: Creating nios_software.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source nios_software.elf >nios_software.objdump
+[nios_software build complete]
+
+01:09:16 Build Finished (took 2s.226ms)
+
