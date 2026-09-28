@@ -6,7 +6,7 @@ entity DE1_SoC_Lab3 is
 		CLOCK_50		: in std_logic;
 		SW				: in std_logic_vector(7 downto 0);
 		KEY			: in std_logic_vector(3 downto 0);
-		LEDS			: out std_logic_vector(7 downto 0);
+		LEDR			: out std_logic_vector(7 downto 0);
 		HEX0			: out std_logic_vector(6 downto 0)
 	);
 end entity DE1_SoC_Lab3;
@@ -32,7 +32,7 @@ begin
 			clk_clk            => CLOCK_50,
 			reset_reset_n      => '1',
 			hex0_export        => HEX0,
-			leds_export        => LEDS,
+			leds_export        => LEDR,
 			pushbuttons_export => KEY,
 			switches_export    => SW
 		);

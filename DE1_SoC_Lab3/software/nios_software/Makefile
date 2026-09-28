@@ -142,7 +142,7 @@ ACDS_VERSION := 18.1
 ELF := nios_software.elf
 
 # Paths to C, C++, and assembly source files.
-C_SRCS := Lab3_part1.c
+C_SRCS := hex0_counter.c
 CXX_SRCS :=
 ASM_SRCS :=
 

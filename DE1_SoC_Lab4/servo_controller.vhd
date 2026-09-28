@@ -16,7 +16,7 @@ entity servo_controller is
 end entity servo_controller;
 
 architecture arch of servo_controller is
-  type state_type is (IDLE, MOVE_LEFT, MOVE_RIGHT);
+  type state_type is (NEUTRAL, IDLE_LOW, IDLE_HIGH, MOVE_LEFT, MOVE_RIGHT);
   signal current_state, next_state        : state_type;
 
   signal angle_reg    : unsigned(7 downto 0);
@@ -46,6 +46,8 @@ architecture arch of servo_controller is
                       Neutral       when others;
     
     
+	 %angle counter%
+	 
     angle_counter_proc : process(clk, reset)
     begin
       if reset = '1' then
@@ -70,24 +72,51 @@ architecture arch of servo_controller is
       end if;
     end process;
     
+	 
     period_counter_proc : process(clk, reset)
     begin
-    
     end process;
     
-    servo_fsm_proc : process(clk, irq_i, pwm_i)
+    servo_fsm_proc : process(clk, reset, irq_i, pwm_i)
     begin
-    
+		if reset = '1' then
+			state <= NEUTRAL;
+		elsif rising_edge(clk) then
+			case state is
+				when NEUTRAL =>
+					if (wr_data = '1') then
+						state <= MOVE_RIGHT;
+					end if;
+				when MOVE_RIGHT =>
+					if (angle_cnt >= 0x87) then
+						state <= IDLE_HIGH;
+					else
+						state <= MOVE_RIGHT;
+					end if;
+				when MOVE_LEFT =>
+					if (angle_cnt <= 0x2D) then
+						state <= IDLE_LOW;
+					else
+						state <= MOVE_LEFT;
+					end if;
+				when IDLE_HIGH =>
+					wait 100ms;
+					state <= MOVE_LEFT;
+				when IDLE_LOW =>
+					wait 100ms;
+					state MOVE_RIGHT;
+				when others =>
+					state <= NEUTRAL;
+			end case;
+		end if;
     end process;
     
     servo_irq_proc : process(clk)
     begin
-    
     end process;
     
     reg_logic_proc : process(clk)
     begin
-    
     end process;
     
 end architecture arch;
