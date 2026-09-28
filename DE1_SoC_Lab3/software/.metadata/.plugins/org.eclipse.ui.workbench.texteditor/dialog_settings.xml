@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="HEX0_BASE" key="selection"/>
+		<item value="hex_index" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="index"/>
 			<item value="key"/>
 			<item value="key_base"/>
 			<item value="HEX0_BASE"/>
@@ -15,6 +16,7 @@
 			<item value=""/>
 		</list>
 		<list key="replacehistory">
+			<item value="hex_index"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
