@@ -1,0 +1,6 @@
+
+State Machine - |servo_top|servo_controller:u_servo|state
+Name state.S_INT state.MOVE_LEFT state.MOVE_RIGHT 
+state.MOVE_RIGHT 0 0 0 
+state.MOVE_LEFT 0 1 1 
+state.S_INT 1 0 1 

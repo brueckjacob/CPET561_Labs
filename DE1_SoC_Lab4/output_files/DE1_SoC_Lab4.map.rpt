@@ -1,0 +1,833 @@
+Analysis & Synthesis report for DE1_SoC_Lab4
+Sun Oct 18 19:04:56 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. State Machine - |servo_top|servo_controller:u_servo|state
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for sld_signaltap:auto_signaltap_0
+ 16. Parameter Settings for User Entity Instance: servo_controller:u_servo
+ 17. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 18. Port Connectivity Checks: "servo_controller:u_servo"
+ 19. Signal Tap Logic Analyzer Settings
+ 20. Post-Synthesis Netlist Statistics for Top Partition
+ 21. Elapsed Time Per Partition
+ 22. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 23. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Oct 18 19:04:56 2026       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; DE1_SoC_Lab4                                ;
+; Top-level Entity Name           ; servo_top                                   ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 796                                         ;
+; Total pins                      ; 51                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 53,248                                      ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; servo_top          ; DE1_SoC_Lab4       ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                    ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                          ; Library     ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------+
+; servo_controller.vhd                                               ; yes             ; User VHDL File                               ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd                                               ;             ;
+; servo_top.vhd                                                      ; yes             ; User VHDL File                               ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd                                                      ;             ;
+; sld_signaltap.vhd                                                  ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_signaltap.vhd                                              ;             ;
+; sld_signaltap_impl.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_signaltap_impl.vhd                                         ;             ;
+; sld_ela_control.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_ela_control.vhd                                            ;             ;
+; lpm_shiftreg.tdf                                                   ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_shiftreg.tdf                                               ;             ;
+; lpm_constant.inc                                                   ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_constant.inc                                               ;             ;
+; dffeea.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dffeea.inc                                                     ;             ;
+; aglobal181.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                 ;             ;
+; sld_mbpmg.vhd                                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_mbpmg.vhd                                                  ;             ;
+; sld_ela_trigger_flow_mgr.vhd                                       ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_ela_trigger_flow_mgr.vhd                                   ;             ;
+; sld_buffer_manager.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_buffer_manager.vhd                                         ;             ;
+; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                                 ;             ;
+; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                          ;             ;
+; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                                    ;             ;
+; lpm_decode.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                                 ;             ;
+; a_rdenreg.inc                                                      ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                  ;             ;
+; altrom.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                                     ;             ;
+; altram.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                     ;             ;
+; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                   ;             ;
+; db/altsyncram_ih84.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/altsyncram_ih84.tdf                                             ;             ;
+; altdpram.tdf                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.tdf                                                   ;             ;
+; memmodes.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/others/maxplus2/memmodes.inc                                                 ;             ;
+; a_hdffe.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_hdffe.inc                                                    ;             ;
+; alt_le_rden_reg.inc                                                ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_le_rden_reg.inc                                            ;             ;
+; altsyncram.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.inc                                                 ;             ;
+; lpm_mux.tdf                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.tdf                                                    ;             ;
+; muxlut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/muxlut.inc                                                     ;             ;
+; bypassff.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc                                                   ;             ;
+; altshift.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc                                                   ;             ;
+; db/mux_dlc.tdf                                                     ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/mux_dlc.tdf                                                     ;             ;
+; lpm_decode.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.tdf                                                 ;             ;
+; declut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/declut.inc                                                     ;             ;
+; lpm_compare.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.inc                                                ;             ;
+; db/decode_vnf.tdf                                                  ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/decode_vnf.tdf                                                  ;             ;
+; lpm_counter.tdf                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.tdf                                                ;             ;
+; lpm_add_sub.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                                ;             ;
+; cmpconst.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cmpconst.inc                                                   ;             ;
+; lpm_counter.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.inc                                                ;             ;
+; alt_counter_stratix.inc                                            ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_counter_stratix.inc                                        ;             ;
+; db/cntr_39i.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_39i.tdf                                                    ;             ;
+; db/cmpr_d9c.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_d9c.tdf                                                    ;             ;
+; db/cntr_22j.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_22j.tdf                                                    ;             ;
+; db/cntr_09i.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_09i.tdf                                                    ;             ;
+; db/cntr_kri.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_kri.tdf                                                    ;             ;
+; db/cmpr_99c.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_99c.tdf                                                    ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_rom_sr.vhd                                                 ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                                  ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                              ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_hub.vhd                                                    ; altera_sld  ;
+; db/ip/sld57baccdf/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                               ;             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------+
+
+
++------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                            ;
++---------------------------------------------+--------------------------+
+; Resource                                    ; Usage                    ;
++---------------------------------------------+--------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 457                      ;
+;                                             ;                          ;
+; Combinational ALUT usage for logic          ; 448                      ;
+;     -- 7 input functions                    ; 0                        ;
+;     -- 6 input functions                    ; 90                       ;
+;     -- 5 input functions                    ; 87                       ;
+;     -- 4 input functions                    ; 49                       ;
+;     -- <=3 input functions                  ; 222                      ;
+;                                             ;                          ;
+; Dedicated logic registers                   ; 796                      ;
+;                                             ;                          ;
+; I/O pins                                    ; 51                       ;
+; Total MLAB memory bits                      ; 0                        ;
+; Total block memory bits                     ; 53248                    ;
+;                                             ;                          ;
+; Total DSP Blocks                            ; 0                        ;
+;                                             ;                          ;
+; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
+; Maximum fan-out                             ; 452                      ;
+; Total fan-out                               ; 5120                     ;
+; Average fan-out                             ; 3.71                     ;
++---------------------------------------------+--------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                   ; Entity Name                       ; Library Name ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+; |servo_top                                                                                                                              ; 448 (1)             ; 796 (0)                   ; 53248             ; 0          ; 51   ; 0            ; |servo_top                                                                                                                                                                                                                                                                                                                                            ; servo_top                         ; work         ;
+;    |servo_controller:u_servo|                                                                                                           ; 88 (88)             ; 44 (44)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|servo_controller:u_servo                                                                                                                                                                                                                                                                                                                   ; servo_controller                  ; work         ;
+;    |sld_hub:auto_hub|                                                                                                                   ; 92 (1)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_hub:auto_hub                                                                                                                                                                                                                                                                                                                           ; sld_hub                           ; altera_sld   ;
+;       |alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric| ; 91 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric                                                                                                                                                                                           ; alt_sld_fab_with_jtag_input       ; altera_sld   ;
+;          |alt_sld_fab:instrumentation_fabric|                                                                                           ; 91 (0)              ; 91 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                                                                                        ; alt_sld_fab                       ; alt_sld_fab  ;
+;             |alt_sld_fab_alt_sld_fab:alt_sld_fab|                                                                                       ; 91 (1)              ; 91 (5)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                                                                                                    ; alt_sld_fab_alt_sld_fab           ; alt_sld_fab  ;
+;                |alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|                                                                            ; 90 (0)              ; 86 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric                                                                        ; alt_sld_fab_alt_sld_fab_sldfabric ; alt_sld_fab  ;
+;                   |sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|                                                                        ; 90 (57)             ; 86 (58)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub                           ; sld_jtag_hub                      ; work         ;
+;                      |sld_rom_sr:hub_info_reg|                                                                                          ; 15 (15)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg   ; sld_rom_sr                        ; work         ;
+;                      |sld_shadow_jsm:shadow_jsm|                                                                                        ; 18 (18)             ; 19 (19)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_shadow_jsm:shadow_jsm ; sld_shadow_jsm                    ; altera_sld   ;
+;    |sld_signaltap:auto_signaltap_0|                                                                                                     ; 267 (2)             ; 661 (52)                  ; 53248             ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0                                                                                                                                                                                                                                                                                                             ; sld_signaltap                     ; work         ;
+;       |sld_signaltap_impl:sld_signaltap_body|                                                                                           ; 265 (0)             ; 609 (0)                   ; 53248             ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body                                                                                                                                                                                                                                                                       ; sld_signaltap_impl                ; work         ;
+;          |sld_signaltap_implb:sld_signaltap_body|                                                                                       ; 265 (67)            ; 609 (186)                 ; 53248             ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body                                                                                                                                                                                                                                ; sld_signaltap_implb               ; work         ;
+;             |altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|                                                            ; 2 (0)               ; 70 (70)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem                                                                                                                                                                 ; altdpram                          ; work         ;
+;                |lpm_decode:wdecoder|                                                                                                    ; 2 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder                                                                                                                                             ; lpm_decode                        ; work         ;
+;                   |decode_vnf:auto_generated|                                                                                           ; 2 (2)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altdpram:\stp_non_zero_ram_gen:attribute_mem_gen:attribute_mem|lpm_decode:wdecoder|decode_vnf:auto_generated                                                                                                                   ; decode_vnf                        ; work         ;
+;             |altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|                                                                           ; 0 (0)               ; 0 (0)                     ; 53248             ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram                                                                                                                                                                                ; altsyncram                        ; work         ;
+;                |altsyncram_ih84:auto_generated|                                                                                         ; 0 (0)               ; 0 (0)                     ; 53248             ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_ih84:auto_generated                                                                                                                                                 ; altsyncram_ih84                   ; work         ;
+;             |lpm_shiftreg:segment_offset_config_deserialize|                                                                            ; 0 (0)               ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|lpm_shiftreg:segment_offset_config_deserialize                                                                                                                                                                                 ; lpm_shiftreg                      ; work         ;
+;             |lpm_shiftreg:status_register|                                                                                              ; 17 (17)             ; 17 (17)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|lpm_shiftreg:status_register                                                                                                                                                                                                   ; lpm_shiftreg                      ; work         ;
+;             |serial_crc_16:\tdo_crc_gen:tdo_crc_calc|                                                                                   ; 4 (4)               ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|serial_crc_16:\tdo_crc_gen:tdo_crc_calc                                                                                                                                                                                        ; serial_crc_16                     ; work         ;
+;             |sld_buffer_manager:sld_buffer_manager_inst|                                                                                ; 80 (80)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst                                                                                                                                                                                     ; sld_buffer_manager                ; work         ;
+;             |sld_ela_control:ela_control|                                                                                               ; 34 (1)              ; 146 (1)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control                                                                                                                                                                                                    ; sld_ela_control                   ; work         ;
+;                |lpm_shiftreg:trigger_config_deserialize|                                                                                ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|lpm_shiftreg:trigger_config_deserialize                                                                                                                                                            ; lpm_shiftreg                      ; work         ;
+;                |sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|                                 ; 26 (0)              ; 130 (0)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm                                                                                                             ; sld_ela_basic_multi_level_trigger ; work         ;
+;                   |lpm_shiftreg:trigger_condition_deserialize|                                                                          ; 0 (0)               ; 78 (78)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|lpm_shiftreg:trigger_condition_deserialize                                                                  ; lpm_shiftreg                      ; work         ;
+;                   |sld_mbpmg:\trigger_modules_gen:0:trigger_match|                                                                      ; 26 (0)              ; 52 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match                                                              ; sld_mbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:0:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:0:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:10:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:10:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:11:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:11:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:12:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:12:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:13:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:13:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:14:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:14:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:15:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:15:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:16:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:16:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:17:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:17:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:18:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:18:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:19:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:19:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:1:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:1:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:20:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:20:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:21:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:21:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:22:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:22:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:23:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:23:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:24:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:24:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:25:sm1|                                                           ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:25:sm1       ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:2:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:2:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:3:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:3:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:4:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:4:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:5:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:5:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:6:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:6:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:7:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:7:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:8:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:8:sm1        ; sld_sbpmg                         ; work         ;
+;                      |sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:9:sm1|                                                            ; 1 (1)               ; 2 (2)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_basic_multi_level_trigger:\basic_multi_level_mbpm_trigger_gen:multi_level_mbpm|sld_mbpmg:\trigger_modules_gen:0:trigger_match|sld_sbpmg:\gen_sbpmg_pipeline_less_than_two:sm0:9:sm1        ; sld_sbpmg                         ; work         ;
+;                |sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity|                                                          ; 7 (7)               ; 11 (1)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity                                                                                                                                      ; sld_ela_trigger_flow_mgr          ; work         ;
+;                   |lpm_shiftreg:trigger_config_deserialize|                                                                             ; 0 (0)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_ela_control:ela_control|sld_ela_trigger_flow_mgr:\builtin:ela_trigger_flow_mgr_entity|lpm_shiftreg:trigger_config_deserialize                                                                                              ; lpm_shiftreg                      ; work         ;
+;             |sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|                                          ; 41 (11)             ; 94 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst                                                                                                                                               ; sld_offload_buffer_mgr            ; work         ;
+;                |lpm_counter:\adv_point_3_and_more:advance_pointer_counter|                                                              ; 7 (0)               ; 5 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:\adv_point_3_and_more:advance_pointer_counter                                                                                     ; lpm_counter                       ; work         ;
+;                   |cntr_39i:auto_generated|                                                                                             ; 7 (7)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:\adv_point_3_and_more:advance_pointer_counter|cntr_39i:auto_generated                                                             ; cntr_39i                          ; work         ;
+;                |lpm_counter:read_pointer_counter|                                                                                       ; 11 (0)              ; 11 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:read_pointer_counter                                                                                                              ; lpm_counter                       ; work         ;
+;                   |cntr_22j:auto_generated|                                                                                             ; 11 (11)             ; 11 (11)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:read_pointer_counter|cntr_22j:auto_generated                                                                                      ; cntr_22j                          ; work         ;
+;                |lpm_counter:status_advance_pointer_counter|                                                                             ; 7 (0)               ; 5 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_advance_pointer_counter                                                                                                    ; lpm_counter                       ; work         ;
+;                   |cntr_09i:auto_generated|                                                                                             ; 7 (7)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_advance_pointer_counter|cntr_09i:auto_generated                                                                            ; cntr_09i                          ; work         ;
+;                |lpm_counter:status_read_pointer_counter|                                                                                ; 3 (0)               ; 1 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_read_pointer_counter                                                                                                       ; lpm_counter                       ; work         ;
+;                   |cntr_kri:auto_generated|                                                                                             ; 3 (3)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_counter:status_read_pointer_counter|cntr_kri:auto_generated                                                                               ; cntr_kri                          ; work         ;
+;                |lpm_shiftreg:info_data_shift_out|                                                                                       ; 0 (0)               ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:info_data_shift_out                                                                                                              ; lpm_shiftreg                      ; work         ;
+;                |lpm_shiftreg:ram_data_shift_out|                                                                                        ; 1 (1)               ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:ram_data_shift_out                                                                                                               ; lpm_shiftreg                      ; work         ;
+;                |lpm_shiftreg:status_data_shift_out|                                                                                     ; 1 (1)               ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_offload_buffer_mgr:\stp_non_zero_depth_offload_gen:stp_offload_buff_mgr_inst|lpm_shiftreg:status_data_shift_out                                                                                                            ; lpm_shiftreg                      ; work         ;
+;             |sld_rom_sr:crc_rom_sr|                                                                                                     ; 20 (20)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_rom_sr:crc_rom_sr                                                                                                                                                                                                          ; sld_rom_sr                        ; work         ;
++-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                                                           ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+; Name                                                                                                                                                                                                  ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF  ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|altsyncram:\stp_non_zero_ram_gen:stp_buffer_ram|altsyncram_ih84:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 2048         ; 26           ; 2048         ; 26           ; 53248 ; None ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+-------+------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                                                                                                                                                                                                                            ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                                                                                                                                                                                                                                ; IP Include File ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric                                                                                 ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab                                             ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_presplit:presplit   ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric ;                 ;
+; Altera ; Signal Tap   ; N/A     ; N/A          ; Licensed     ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_splitter:splitter   ;                 ;
++--------+--------------+---------+--------------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------+
+; State Machine - |servo_top|servo_controller:u_servo|state           ;
++------------------+-------------+-----------------+------------------+
+; Name             ; state.S_INT ; state.MOVE_LEFT ; state.MOVE_RIGHT ;
++------------------+-------------+-----------------+------------------+
+; state.MOVE_RIGHT ; 0           ; 0               ; 0                ;
+; state.MOVE_LEFT  ; 0           ; 1               ; 1                ;
+; state.S_INT      ; 1           ; 0               ; 1                ;
++------------------+-------------+-----------------+------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                      ;
++----------------------------------------------------------------+--------------------------------------------------------+
+; Register name                                                  ; Reason for Removal                                     ;
++----------------------------------------------------------------+--------------------------------------------------------+
+; servo_controller:u_servo|min_angle_reg[16..31]                 ; Stuck at GND due to stuck port data_in                 ;
+; servo_controller:u_servo|min_angle_reg[14,15]                  ; Stuck at VCC due to stuck port data_in                 ;
+; servo_controller:u_servo|min_angle_reg[10..13]                 ; Stuck at GND due to stuck port data_in                 ;
+; servo_controller:u_servo|min_angle_reg[8,9]                    ; Stuck at VCC due to stuck port data_in                 ;
+; servo_controller:u_servo|min_angle_reg[7]                      ; Stuck at GND due to stuck port data_in                 ;
+; servo_controller:u_servo|min_angle_reg[6]                      ; Stuck at VCC due to stuck port data_in                 ;
+; servo_controller:u_servo|min_angle_reg[5]                      ; Stuck at GND due to stuck port data_in                 ;
+; servo_controller:u_servo|min_angle_reg[4]                      ; Stuck at VCC due to stuck port data_in                 ;
+; servo_controller:u_servo|min_angle_reg[0..3]                   ; Stuck at GND due to stuck port data_in                 ;
+; servo_controller:u_servo|max_angle_reg[1..4,6,8,11..14,17..31] ; Merged with servo_controller:u_servo|max_angle_reg[0]  ;
+; servo_controller:u_servo|max_angle_reg[5,7,9,10,15]            ; Merged with servo_controller:u_servo|max_angle_reg[16] ;
+; servo_controller:u_servo|max_angle_reg[0]                      ; Stuck at GND due to stuck port data_in                 ;
+; servo_controller:u_servo|max_angle_reg[16]                     ; Stuck at VCC due to stuck port data_in                 ;
+; Total Number of Removed Registers = 64                         ;                                                        ;
++----------------------------------------------------------------+--------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 796   ;
+; Number of registers using Synchronous Clear  ; 139   ;
+; Number of registers using Synchronous Load   ; 159   ;
+; Number of registers using Asynchronous Clear ; 313   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 416   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                                                                                                                                                                                                                                                                              ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; servo_controller:u_servo|pulse_width[15]                                                                                                                                                                                                                                                                                        ; 6       ;
+; servo_controller:u_servo|pulse_width[14]                                                                                                                                                                                                                                                                                        ; 6       ;
+; servo_controller:u_servo|pulse_width[4]                                                                                                                                                                                                                                                                                         ; 4       ;
+; servo_controller:u_servo|pulse_width[9]                                                                                                                                                                                                                                                                                         ; 7       ;
+; servo_controller:u_servo|pulse_width[8]                                                                                                                                                                                                                                                                                         ; 6       ;
+; servo_controller:u_servo|pulse_width[6]                                                                                                                                                                                                                                                                                         ; 6       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
+; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 3       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[9]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[10]                                                                                                                                                  ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[11]                                                                                                                                                  ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[6]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[7]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[8]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[0]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[1]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[2]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[3]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[4]                                                                                                                                                   ; 1       ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|modified_post_count[5]                                                                                                                                                   ; 1       ;
+; Total number of inverted registers = 20                                                                                                                                                                                                                                                                                         ;         ;
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |servo_top|servo_controller:u_servo|Selector2 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
+
+
++-------------------------------------------------------+
+; Source assignments for sld_signaltap:auto_signaltap_0 ;
++-----------------+-------+------+----------------------+
+; Assignment      ; Value ; From ; To                   ;
++-----------------+-------+------+----------------------+
+; MESSAGE_DISABLE ; 13410 ; -    ; -                    ;
++-----------------+-------+------+----------------------+
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: servo_controller:u_servo ;
++----------------+---------+--------------------------------------------+
+; Parameter Name ; Value   ; Type                                       ;
++----------------+---------+--------------------------------------------+
+; PERIOD_COUNT   ; 1000000 ; Signed Integer                             ;
+; STEP_SIZE      ; 500     ; Signed Integer                             ;
++----------------+---------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0                                                                                            ;
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------+----------------+
+; Parameter Name                                  ; Value                                                                                                   ; Type           ;
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------+----------------+
+; lpm_type                                        ; sld_signaltap                                                                                           ; String         ;
+; sld_node_info                                   ; 805334528                                                                                               ; Untyped        ;
+; SLD_SECTION_ID                                  ; hdl_signaltap_0                                                                                         ; String         ;
+; SLD_IP_VERSION                                  ; 6                                                                                                       ; Signed Integer ;
+; SLD_IP_MINOR_VERSION                            ; 0                                                                                                       ; Signed Integer ;
+; SLD_COMMON_IP_VERSION                           ; 0                                                                                                       ; Signed Integer ;
+; sld_data_bits                                   ; 26                                                                                                      ; Untyped        ;
+; sld_trigger_bits                                ; 26                                                                                                      ; Untyped        ;
+; SLD_NODE_CRC_BITS                               ; 32                                                                                                      ; Signed Integer ;
+; SLD_NODE_CRC_HIWORD                             ; 41394                                                                                                   ; Signed Integer ;
+; SLD_NODE_CRC_LOWORD                             ; 50132                                                                                                   ; Signed Integer ;
+; sld_incremental_routing                         ; 1                                                                                                       ; Untyped        ;
+; sld_sample_depth                                ; 2048                                                                                                    ; Untyped        ;
+; sld_segment_size                                ; 2048                                                                                                    ; Untyped        ;
+; sld_ram_block_type                              ; AUTO                                                                                                    ; Untyped        ;
+; sld_state_bits                                  ; 11                                                                                                      ; Untyped        ;
+; sld_buffer_full_stop                            ; 1                                                                                                       ; Untyped        ;
+; SLD_MEM_ADDRESS_BITS                            ; 7                                                                                                       ; Signed Integer ;
+; SLD_DATA_BIT_CNTR_BITS                          ; 4                                                                                                       ; Signed Integer ;
+; sld_trigger_level                               ; 1                                                                                                       ; Untyped        ;
+; sld_trigger_in_enabled                          ; 0                                                                                                       ; Untyped        ;
+; SLD_HPS_TRIGGER_IN_ENABLED                      ; 0                                                                                                       ; Signed Integer ;
+; SLD_HPS_TRIGGER_OUT_ENABLED                     ; 0                                                                                                       ; Signed Integer ;
+; SLD_HPS_EVENT_ENABLED                           ; 0                                                                                                       ; Signed Integer ;
+; SLD_HPS_EVENT_ID                                ; 0                                                                                                       ; Signed Integer ;
+; sld_advanced_trigger_entity                     ; basic,1,                                                                                                ; Untyped        ;
+; sld_trigger_level_pipeline                      ; 1                                                                                                       ; Untyped        ;
+; sld_trigger_pipeline                            ; 0                                                                                                       ; Untyped        ;
+; sld_ram_pipeline                                ; 0                                                                                                       ; Untyped        ;
+; sld_counter_pipeline                            ; 0                                                                                                       ; Untyped        ;
+; sld_enable_advanced_trigger                     ; 0                                                                                                       ; Untyped        ;
+; SLD_ADVANCED_TRIGGER_1                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_2                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_3                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_4                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_5                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_6                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_7                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_8                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_9                          ; NONE                                                                                                    ; String         ;
+; SLD_ADVANCED_TRIGGER_10                         ; NONE                                                                                                    ; String         ;
+; sld_inversion_mask_length                       ; 103                                                                                                     ; Untyped        ;
+; sld_inversion_mask                              ; 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 ; Untyped        ;
+; sld_power_up_trigger                            ; 0                                                                                                       ; Untyped        ;
+; SLD_STATE_FLOW_MGR_ENTITY                       ; state_flow_mgr_entity.vhd                                                                               ; String         ;
+; sld_state_flow_use_generated                    ; 0                                                                                                       ; Untyped        ;
+; sld_current_resource_width                      ; 1                                                                                                       ; Untyped        ;
+; sld_attribute_mem_mode                          ; OFF                                                                                                     ; Untyped        ;
+; sld_storage_qualifier_bits                      ; 26                                                                                                      ; Untyped        ;
+; SLD_STORAGE_QUALIFIER_GAP_RECORD                ; 0                                                                                                       ; Signed Integer ;
+; SLD_STORAGE_QUALIFIER_MODE                      ; OFF                                                                                                     ; String         ;
+; SLD_STORAGE_QUALIFIER_ENABLE_ADVANCED_CONDITION ; 0                                                                                                       ; Signed Integer ;
+; sld_storage_qualifier_inversion_mask_length     ; 0                                                                                                       ; Untyped        ;
+; SLD_STORAGE_QUALIFIER_ADVANCED_CONDITION_ENTITY ; basic                                                                                                   ; String         ;
+; SLD_STORAGE_QUALIFIER_PIPELINE                  ; 0                                                                                                       ; Signed Integer ;
+; SLD_CREATE_MONITOR_INTERFACE                    ; 0                                                                                                       ; Signed Integer ;
+; SLD_USE_JTAG_SIGNAL_ADAPTER                     ; 1                                                                                                       ; Signed Integer ;
++-------------------------------------------------+---------------------------------------------------------------------------------------------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "servo_controller:u_servo" ;
++-------------------+-------+----------+---------------+
+; Port              ; Type  ; Severity ; Details       ;
++-------------------+-------+----------+---------------+
+; address           ; Input ; Info     ; Stuck at GND  ;
+; write             ; Input ; Info     ; Stuck at VCC  ;
+; writedata[15..14] ; Input ; Info     ; Stuck at VCC  ;
+; writedata[9..8]   ; Input ; Info     ; Stuck at VCC  ;
+; writedata[31..16] ; Input ; Info     ; Stuck at GND  ;
+; writedata[13..10] ; Input ; Info     ; Stuck at GND  ;
+; writedata[3..0]   ; Input ; Info     ; Stuck at GND  ;
+; writedata[7]      ; Input ; Info     ; Stuck at GND  ;
+; writedata[6]      ; Input ; Info     ; Stuck at VCC  ;
+; writedata[5]      ; Input ; Info     ; Stuck at GND  ;
+; writedata[4]      ; Input ; Info     ; Stuck at VCC  ;
++-------------------+-------+----------+---------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Tap Logic Analyzer Settings                                                                                                                                                                                                                                      ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+; Instance Index ; Instance Name    ; Trigger Input Width ; Data Input Width ; Sample Depth ; Segments ; Storage Qualifier Type ; Trigger Flow Control ; Trigger Conditions ; Advanced Trigger Conditions ; Trigger In Used ; Trigger Out Used ; Power-Up Trigger Enabled ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+; 0              ; auto_signaltap_0 ; 26                  ; 26               ; 2048         ; 1        ; continuous             ; sequential           ; 1                  ; 0                           ; no              ; no               ; no                       ;
++----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 44                          ;
+;     CLR               ; 6                           ;
+;     CLR SCLR          ; 20                          ;
+;     ENA CLR           ; 18                          ;
+; arriav_lcell_comb     ; 89                          ;
+;     arith             ; 38                          ;
+;         1 data inputs ; 21                          ;
+;         2 data inputs ; 17                          ;
+;     normal            ; 51                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 12                          ;
+;         5 data inputs ; 10                          ;
+;         6 data inputs ; 10                          ;
+; boundary_port         ; 75                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.61                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Connections to In-System Debugging Instance "auto_signaltap_0"                                                                                                                                                                                                                                                                                    ;
++-------------------------------------------+---------------+-----------+--------------------------------+-------------------+-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Name                                      ; Type          ; Status    ; Partition Name                 ; Netlist Type Used ; Actual Connection                                   ; Details                                                                                                                                                        ;
++-------------------------------------------+---------------+-----------+--------------------------------+-------------------+-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; CLOCK_50                                  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; CLOCK_50                                            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|irq_i            ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|irq_i                      ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|irq_i            ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|irq_i                      ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|out_wave         ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|LessThan0~16               ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|out_wave         ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|LessThan0~16               ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_start      ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_start                ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_start      ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_start                ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[0]   ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; servo_controller:u_servo|pulse_width[0]   ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; servo_controller:u_servo|pulse_width[10]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[10]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[10]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[10]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[11]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[11]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[11]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[11]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[12]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[12]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[12]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[12]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[13]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[13]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[13]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[13]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[14]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[14]~_wirecell  ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[14]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[14]~_wirecell  ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[15]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[15]~_wirecell  ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[15]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[15]~_wirecell  ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[16]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[16]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[16]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[16]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[17]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[17]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[17]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[17]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[18]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[18]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[18]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[18]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[19]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[19]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[19]  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[19]            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[1]   ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; servo_controller:u_servo|pulse_width[1]   ; pre-synthesis ; missing   ; Top                            ; post-synthesis    ; GND                                                 ; The name does not exist in your design or refers to an invalid hierarchy or bus element.  You may have modified your design after creating the debug instance. ;
+; servo_controller:u_servo|pulse_width[2]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[2]             ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[2]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[2]             ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[3]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[3]             ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[3]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[3]             ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[4]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[4]~_wirecell   ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[4]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[4]~_wirecell   ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[5]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[5]             ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[5]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[5]             ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[6]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[6]~_wirecell   ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[6]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[6]~_wirecell   ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[7]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[7]             ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[7]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[7]             ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[8]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[8]~_wirecell   ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[8]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[8]~_wirecell   ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[9]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[9]~_wirecell   ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|pulse_width[9]   ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|pulse_width[9]~_wirecell   ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|state.MOVE_LEFT  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|state.MOVE_LEFT            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|state.MOVE_LEFT  ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|state.MOVE_LEFT            ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|state.MOVE_RIGHT ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|state.MOVE_RIGHT~_wirecell ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|state.MOVE_RIGHT ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|state.MOVE_RIGHT~_wirecell ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|state.S_INT      ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|state.S_INT                ; N/A                                                                                                                                                            ;
+; servo_controller:u_servo|state.S_INT      ; pre-synthesis ; connected ; Top                            ; post-synthesis    ; servo_controller:u_servo|state.S_INT                ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|gnd                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~GND                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
+; auto_signaltap_0|vcc                      ; post-fitting  ; connected ; sld_signaltap:auto_signaltap_0 ; post-synthesis    ; sld_signaltap:auto_signaltap_0|~VCC                 ; N/A                                                                                                                                                            ;
++-------------------------------------------+---------------+-----------+--------------------------------+-------------------+-----------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sun Oct 18 19:04:32 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC_Lab4 -c DE1_SoC_Lab4
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file servo_controller.vhd
+    Info (12022): Found design unit 1: servo_controller-arch File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 22
+    Info (12023): Found entity 1: servo_controller File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file servo_top.vhd
+    Info (12022): Found design unit 1: servo_top-top File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 14
+    Info (12023): Found entity 1: servo_top File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 5
+Info (12127): Elaborating entity "servo_top" for the top level hierarchy
+Info (12128): Elaborating entity "servo_controller" for hierarchy "servo_controller:u_servo" File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at servo_controller.vhd(48): inferring latch(es) for signal or variable "pulse_width", which holds its previous value in one or more paths through the process File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
+Info (10041): Inferred latch for "pulse_width[0]" at servo_controller.vhd(48) File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
+Info (10041): Inferred latch for "pulse_width[1]" at servo_controller.vhd(48) File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ih84.tdf
+    Info (12023): Found entity 1: altsyncram_ih84 File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/altsyncram_ih84.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_dlc.tdf
+    Info (12023): Found entity 1: mux_dlc File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/mux_dlc.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_vnf.tdf
+    Info (12023): Found entity 1: decode_vnf File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/decode_vnf.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_39i.tdf
+    Info (12023): Found entity 1: cntr_39i File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_39i.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_d9c.tdf
+    Info (12023): Found entity 1: cmpr_d9c File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_d9c.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_22j.tdf
+    Info (12023): Found entity 1: cntr_22j File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_22j.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_09i.tdf
+    Info (12023): Found entity 1: cntr_09i File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_09i.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_kri.tdf
+    Info (12023): Found entity 1: cntr_kri File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_kri.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_99c.tdf
+    Info (12023): Found entity 1: cmpr_99c File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_99c.tdf Line: 22
+Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
+Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
+Info (11172): 2026.10.18.19:04:46 Progress: Loading sld57baccdf/alt_sld_fab_wrapper_hw.tcl
+Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
+Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
+Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
+Info (11172): Presplit: "alt_sld_fab" instantiated altera_super_splitter "presplit"
+Info (11172): Splitter: "alt_sld_fab" instantiated altera_sld_splitter "splitter"
+Info (11172): Sldfabric: "alt_sld_fab" instantiated altera_sld_jtag_hub "sldfabric"
+Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification_hub "ident"
+Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
+Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "GPIO_0[1]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[2]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[3]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[4]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[5]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[6]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[7]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[8]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[9]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[10]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[11]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[12]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[13]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[14]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[15]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[16]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[17]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[18]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[19]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[20]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[21]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[22]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[23]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[24]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[25]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[26]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[27]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[28]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[29]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[30]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[31]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[32]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[33]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[34]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[35]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 81 of its 85 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 4 missing sources or connections.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
+Info (21057): Implemented 1084 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 47 output pins
+    Info (21061): Implemented 1002 logic cells
+    Info (21064): Implemented 26 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 4946 megabytes
+    Info: Processing ended: Sun Oct 18 19:04:56 2026
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:40
+
+

@@ -3,120 +3,158 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity servo_controller is
+  generic (
+    PERIOD_COUNT  : natural := 1_000_000;
+    STEP_SIZE     : natural := 500
+  );
+
   port (
-    clk     : in std_logic;
-    reset   : in std_logic;
-    addr    : in std_logic_vector(1 downto 0);
-    wr_en   : in std_logic;
-    wr_data : in std_logic_vector(7 downto 0);
-    rd_data : out std_logic_vector(7 downto 0);
-    pwm     : out std_logic;
-    irq     : out std_logic
+    clk         : in  std_logic;
+    reset_n     : in  std_logic;
+    address     : in  std_logic;
+    write       : in  std_logic;
+    writedata   : in  std_logic_vector(31 downto 0);
+    out_wave    : out std_logic;
+    irq         : out std_logic
   );
 end entity servo_controller;
 
 architecture arch of servo_controller is
-  type state_type is (NEUTRAL, IDLE_LOW, IDLE_HIGH, MOVE_LEFT, MOVE_RIGHT);
-  signal current_state, next_state        : state_type;
+  type state_type is (S_INT, MOVE_LEFT, MOVE_RIGHT);
+  signal state        : state_type;
 
-  signal angle_reg    : unsigned(7 downto 0);
-  signal ctrl_reg     : std_logic_vector(7 downto 0);
-  signal angle_cnt    : unsigned(19 downto 0);
-  signal period_cnt   : unsigned(19 downto 0);
-  signal pulse_width  : unsigned(19 downto 0);
+  signal period_cnt     : unsigned(19 downto 0);
+  signal pulse_width    : unsigned(19 downto 0);
+  signal min_angle_reg  : unsigned(31 downto 0);
+  signal max_angle_reg  : unsigned(31 downto 0);
   
-  signal period_done  : std_logic;
-  signal pulse_done   : std_logic;
   signal pulse_start  : std_logic;
   signal pwm_i        : std_logic;
   signal irq_i        : std_logic;
+  signal last_dir     : std_logic := '0';
   
-  constant Min_pulse : unsigned(19 downto 0) := to_unsigned(50_000, 20);
-  constant Neutral   : unsigned(19 downto 0) := to_unsigned(75_000, 20);
-  constant Max_pulse : unsigned(19 downto 0) := to_unsigned(100_000, 20);
+  constant Min_pulse 	: unsigned(19 downto 0) := to_unsigned(50_000, 20);
+  constant Max_pulse 	: unsigned(19 downto 0) := to_unsigned(100_000, 20);
+  constant Max_period	: unsigned(19 downto 0) := to_unsigned(PERIOD_COUNT, 20);
+  constant STEP       : unsigned(19 downto 0) := to_unsigned(STEP_SIZE, 20);
   
   begin
-    pwm <= pwm_i;
+    out_wave <= pwm_i;
     irq <= irq_i;
     
-    with angle_reg(1 downto 0) select
-      pulse_width <=  Min_pulse     when "00",
-                      Neutral       when "01",
-                      Max_pulse     when "10",
-                      Neutral       when others;
+    pwm_i <= '1' when period_cnt < pulse_width else '0';
     
-    
-	 %angle counter%
-	 
-    angle_counter_proc : process(clk, reset)
+    -- Angle counter process
+    angle_counter_proc : process(clk, reset_n)
     begin
-      if reset = '1' then
-        if rising_edge(clk) then
-          angle_cnt   <= (others => '0');
-          pwm_i       <= '0';
-          pulse_done  <= '0';
-        else
-          pulse_done  <= '0';
-          if pulse_start = '1' then
-            angle_cnt <= (others => '0');
-            pwm_i     <= '1';
-          elsif pwm_i = '1' then
-            if pwm_i >= pulse_width then
-              pwm_i       <= '0';
-              pulse_done  <= '1';
-            else
-              angle_cnt <= angle_cnt + 1;
-            end if;
+      if reset_n = '0' then
+        pulse_width   <= Min_pulse;
+  
+      elsif rising_edge(clk) then
+      
+        if pulse_start = '1' then
+
+          if state = MOVE_RIGHT then
+            pulse_width <= pulse_width + STEP;
+            
+          elsif state = MOVE_LEFT then
+            pulse_width <= pulse_width - STEP;
+            
           end if;
         end if;
       end if;
     end process;
     
-	 
-    period_counter_proc : process(clk, reset)
+    -- Period counter process
+    period_counter_proc : process(clk, reset_n)
     begin
-    end process;
-    
-    servo_fsm_proc : process(clk, reset, irq_i, pwm_i)
-    begin
-		if reset = '1' then
-			state <= NEUTRAL;
+		if reset_n = '0' then
+			period_cnt	<= (others =>  '0');
+			pulse_start	<= '0';
+			
 		elsif rising_edge(clk) then
-			case state is
-				when NEUTRAL =>
-					if (wr_data = '1') then
-						state <= MOVE_RIGHT;
-					end if;
-				when MOVE_RIGHT =>
-					if (angle_cnt >= 0x87) then
-						state <= IDLE_HIGH;
-					else
-						state <= MOVE_RIGHT;
-					end if;
-				when MOVE_LEFT =>
-					if (angle_cnt <= 0x2D) then
-						state <= IDLE_LOW;
-					else
-						state <= MOVE_LEFT;
-					end if;
-				when IDLE_HIGH =>
-					wait 100ms;
-					state <= MOVE_LEFT;
-				when IDLE_LOW =>
-					wait 100ms;
-					state MOVE_RIGHT;
-				when others =>
-					state <= NEUTRAL;
-			end case;
-		end if;
+			pulse_start	<= '0';
+			
+      if period_cnt = Max_period - 1 then
+        period_cnt  <= (others => '0');
+        pulse_start <= '1';
+       
+      else
+        period_cnt <= period_cnt + 1;
+      end if;
+     end if;
     end process;
     
-    servo_irq_proc : process(clk)
+    -- Servo Finite State Machine
+    servo_fsm_proc : process(clk, reset_n)
     begin
+      if reset_n = '0' then
+        state <= MOVE_RIGHT;
+        last_dir <= '0';
+        
+      elsif rising_edge(clk) then
+        case state is
+          when MOVE_RIGHT =>
+            if irq_i = '1' then
+              last_dir <= '1';
+              state <= S_INT;
+            end if;
+            
+          when MOVE_LEFT =>
+            if irq_i = '1' then
+              last_dir <= '0';
+              state <= S_INT;
+            end if;
+          
+          when S_INT =>
+            if write = '1' then
+              if last_dir = '0' then
+                state <= MOVE_RIGHT;
+              else
+                state <= MOVE_LEFT;
+              end if;
+            end if;
+            
+          when others =>
+            state <= MOVE_RIGHT;
+        end case;
+      end if;
     end process;
     
-    reg_logic_proc : process(clk)
+    -- Servo interrupt process
+    servo_irq_proc : process(clk, reset_n)
     begin
+      if reset_n = '0' then
+        irq_i <= '0';
+      
+      elsif rising_edge(clk) then
+        if  (state = MOVE_RIGHT and pulse_width >= max_angle_reg) or
+            (state = MOVE_LEFT and pulse_width <= min_angle_reg) then
+          irq_i <= '1';
+          
+        elsif write = '1' then 
+          irq_i <= '0';
+        end if;
+      end if;
+    end process;
+    
+    -- Register logic process
+    reg_logic_proc : process(clk, reset_n)
+    begin
+      if reset_n = '0' then
+        min_angle_reg <= to_unsigned(50_000, 32);
+        max_angle_reg <= to_unsigned(100_000, 32);
+        
+      elsif rising_edge(clk) then
+        if write = '1' then
+          if address = '0' then
+            min_angle_reg <= unsigned(writedata);
+            
+          else
+            max_angle_reg <= unsigned(writedata);
+          end if;
+        end if;
+      end if;
     end process;
     
 end architecture arch;
