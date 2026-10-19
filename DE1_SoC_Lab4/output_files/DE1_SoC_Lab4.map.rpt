@@ -1,6 +1,6 @@
 Analysis & Synthesis report for DE1_SoC_Lab4
-Sun Oct 18 19:04:56 2026
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Mon Oct 19 14:08:34 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
 ---------------------
@@ -17,18 +17,21 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   9. Analysis & Synthesis IP Cores Summary
  10. State Machine - |servo_top|servo_controller:u_servo|state
  11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Inverted Register Statistics
- 14. Multiplexer Restructuring Statistics (Restructuring Performed)
- 15. Source assignments for sld_signaltap:auto_signaltap_0
- 16. Parameter Settings for User Entity Instance: servo_controller:u_servo
- 17. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
- 18. Port Connectivity Checks: "servo_controller:u_servo"
- 19. Signal Tap Logic Analyzer Settings
- 20. Post-Synthesis Netlist Statistics for Top Partition
- 21. Elapsed Time Per Partition
- 22. Connections to In-System Debugging Instance "auto_signaltap_0"
- 23. Analysis & Synthesis Messages
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Source assignments for sld_signaltap:auto_signaltap_0
+ 17. Parameter Settings for User Entity Instance: servo_controller:u_servo
+ 18. Parameter Settings for Inferred Entity Instance: sld_signaltap:auto_signaltap_0
+ 19. Port Connectivity Checks: "servo_controller:u_servo"
+ 20. Signal Tap Logic Analyzer Settings
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Post-Synthesis Netlist Statistics for Partition sld_signaltap:auto_signaltap_0
+ 23. Post-Synthesis Netlist Statistics for Partition sld_hub:auto_hub
+ 24. Elapsed Time Per Partition
+ 25. Connections to In-System Debugging Instance "auto_signaltap_0"
+ 26. Analysis & Synthesis Messages
 
 
 
@@ -51,27 +54,27 @@ refer to the applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Oct 18 19:04:56 2026       ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                   ; DE1_SoC_Lab4                                ;
-; Top-level Entity Name           ; servo_top                                   ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 796                                         ;
-; Total pins                      ; 51                                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 53,248                                      ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Oct 19 14:08:34 2026           ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                   ; DE1_SoC_Lab4                                    ;
+; Top-level Entity Name           ; servo_top                                       ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 796                                             ;
+; Total pins                      ; 51                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 53,248                                          ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -166,81 +169,87 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 12          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 10          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 12          ;
+; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processors 8-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                    ;
-+--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------+
-; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                          ; Library     ;
-+--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------+
-; servo_controller.vhd                                               ; yes             ; User VHDL File                               ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd                                               ;             ;
-; servo_top.vhd                                                      ; yes             ; User VHDL File                               ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd                                                      ;             ;
-; sld_signaltap.vhd                                                  ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_signaltap.vhd                                              ;             ;
-; sld_signaltap_impl.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_signaltap_impl.vhd                                         ;             ;
-; sld_ela_control.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_ela_control.vhd                                            ;             ;
-; lpm_shiftreg.tdf                                                   ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_shiftreg.tdf                                               ;             ;
-; lpm_constant.inc                                                   ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_constant.inc                                               ;             ;
-; dffeea.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/dffeea.inc                                                     ;             ;
-; aglobal181.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                 ;             ;
-; sld_mbpmg.vhd                                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_mbpmg.vhd                                                  ;             ;
-; sld_ela_trigger_flow_mgr.vhd                                       ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_ela_trigger_flow_mgr.vhd                                   ;             ;
-; sld_buffer_manager.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_buffer_manager.vhd                                         ;             ;
-; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                                 ;             ;
-; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                          ;             ;
-; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                                    ;             ;
-; lpm_decode.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                                 ;             ;
-; a_rdenreg.inc                                                      ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                  ;             ;
-; altrom.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                                     ;             ;
-; altram.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                     ;             ;
-; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                   ;             ;
-; db/altsyncram_ih84.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/altsyncram_ih84.tdf                                             ;             ;
-; altdpram.tdf                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.tdf                                                   ;             ;
-; memmodes.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/others/maxplus2/memmodes.inc                                                 ;             ;
-; a_hdffe.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_hdffe.inc                                                    ;             ;
-; alt_le_rden_reg.inc                                                ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_le_rden_reg.inc                                            ;             ;
-; altsyncram.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.inc                                                 ;             ;
-; lpm_mux.tdf                                                        ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.tdf                                                    ;             ;
-; muxlut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/muxlut.inc                                                     ;             ;
-; bypassff.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/bypassff.inc                                                   ;             ;
-; altshift.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altshift.inc                                                   ;             ;
-; db/mux_dlc.tdf                                                     ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/mux_dlc.tdf                                                     ;             ;
-; lpm_decode.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.tdf                                                 ;             ;
-; declut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/declut.inc                                                     ;             ;
-; lpm_compare.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_compare.inc                                                ;             ;
-; db/decode_vnf.tdf                                                  ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/decode_vnf.tdf                                                  ;             ;
-; lpm_counter.tdf                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.tdf                                                ;             ;
-; lpm_add_sub.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                                ;             ;
-; cmpconst.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/cmpconst.inc                                                   ;             ;
-; lpm_counter.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_counter.inc                                                ;             ;
-; alt_counter_stratix.inc                                            ; yes             ; Megafunction                                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/alt_counter_stratix.inc                                        ;             ;
-; db/cntr_39i.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_39i.tdf                                                    ;             ;
-; db/cmpr_d9c.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_d9c.tdf                                                    ;             ;
-; db/cntr_22j.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_22j.tdf                                                    ;             ;
-; db/cntr_09i.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_09i.tdf                                                    ;             ;
-; db/cntr_kri.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_kri.tdf                                                    ;             ;
-; db/cmpr_99c.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_99c.tdf                                                    ;             ;
-; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_rom_sr.vhd                                                 ;             ;
-; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                                  ;             ;
-; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                              ;             ;
-; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_hub.vhd                                                    ; altera_sld  ;
-; db/ip/sld57baccdf/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/alt_sld_fab.v                                    ; alt_sld_fab ;
-; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
-; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
-; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
-; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
-; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
-; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                               ;             ;
-+--------------------------------------------------------------------+-----------------+----------------------------------------------+-----------------------------------------------------------------------------------------------------------------------+-------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                      ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------+
+; File Name with User-Entered Path                                   ; Used in Netlist ; File Type                                    ; File Name with Absolute Path                                                                                            ; Library     ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------+
+; servo_controller.vhd                                               ; yes             ; User VHDL File                               ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd                                               ;             ;
+; servo_top.vhd                                                      ; yes             ; User VHDL File                               ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd                                                      ;             ;
+; sld_signaltap.vhd                                                  ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_signaltap.vhd                                                     ;             ;
+; sld_signaltap_impl.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_signaltap_impl.vhd                                                ;             ;
+; sld_ela_control.vhd                                                ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_ela_control.vhd                                                   ;             ;
+; lpm_shiftreg.tdf                                                   ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_shiftreg.tdf                                                      ;             ;
+; lpm_constant.inc                                                   ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_constant.inc                                                      ;             ;
+; dffeea.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/dffeea.inc                                                            ;             ;
+; aglobal181.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                        ;             ;
+; sld_mbpmg.vhd                                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_mbpmg.vhd                                                         ;             ;
+; sld_ela_trigger_flow_mgr.vhd                                       ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_ela_trigger_flow_mgr.vhd                                          ;             ;
+; sld_buffer_manager.vhd                                             ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_buffer_manager.vhd                                                ;             ;
+; altsyncram.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.tdf                                                        ;             ;
+; stratix_ram_block.inc                                              ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc                                                 ;             ;
+; lpm_mux.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_mux.inc                                                           ;             ;
+; lpm_decode.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_decode.inc                                                        ;             ;
+; a_rdenreg.inc                                                      ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                                                         ;             ;
+; altrom.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altrom.inc                                                            ;             ;
+; altram.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altram.inc                                                            ;             ;
+; altdpram.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.inc                                                          ;             ;
+; db/altsyncram_ih84.tdf                                             ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/altsyncram_ih84.tdf                                             ;             ;
+; altdpram.tdf                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altdpram.tdf                                                          ;             ;
+; memmodes.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/others/maxplus2/memmodes.inc                                                        ;             ;
+; a_hdffe.inc                                                        ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/a_hdffe.inc                                                           ;             ;
+; alt_le_rden_reg.inc                                                ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/alt_le_rden_reg.inc                                                   ;             ;
+; altsyncram.inc                                                     ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altsyncram.inc                                                        ;             ;
+; lpm_mux.tdf                                                        ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_mux.tdf                                                           ;             ;
+; muxlut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/muxlut.inc                                                            ;             ;
+; bypassff.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/bypassff.inc                                                          ;             ;
+; altshift.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/altshift.inc                                                          ;             ;
+; db/mux_dlc.tdf                                                     ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/mux_dlc.tdf                                                     ;             ;
+; lpm_decode.tdf                                                     ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_decode.tdf                                                        ;             ;
+; declut.inc                                                         ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/declut.inc                                                            ;             ;
+; lpm_compare.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_compare.inc                                                       ;             ;
+; db/decode_vnf.tdf                                                  ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/decode_vnf.tdf                                                  ;             ;
+; lpm_counter.tdf                                                    ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_counter.tdf                                                       ;             ;
+; lpm_add_sub.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_add_sub.inc                                                       ;             ;
+; cmpconst.inc                                                       ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/cmpconst.inc                                                          ;             ;
+; lpm_counter.inc                                                    ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/lpm_counter.inc                                                       ;             ;
+; alt_counter_stratix.inc                                            ; yes             ; Megafunction                                 ; c:/intelfpga/18.1/quartus/libraries/megafunctions/alt_counter_stratix.inc                                               ;             ;
+; db/cntr_39i.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_39i.tdf                                                    ;             ;
+; db/cmpr_d9c.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_d9c.tdf                                                    ;             ;
+; db/cntr_22j.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_22j.tdf                                                    ;             ;
+; db/cntr_09i.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_09i.tdf                                                    ;             ;
+; db/cntr_kri.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_kri.tdf                                                    ;             ;
+; db/cmpr_99c.tdf                                                    ; yes             ; Auto-Generated Megafunction                  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_99c.tdf                                                    ;             ;
+; sld_rom_sr.vhd                                                     ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_rom_sr.vhd                                                        ;             ;
+; sld_jtag_endpoint_adapter.vhd                                      ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter.vhd                                         ;             ;
+; sld_jtag_endpoint_adapter_impl.sv                                  ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_jtag_endpoint_adapter_impl.sv                                     ;             ;
+; sld_hub.vhd                                                        ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_hub.vhd                                                           ; altera_sld  ;
+; db/ip/sld57baccdf/alt_sld_fab.v                                    ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/alt_sld_fab.v                                    ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v             ; yes             ; Encrypted Auto-Found Verilog HDL File        ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v             ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; yes             ; Auto-Found SystemVerilog HDL File            ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv      ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv   ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; yes             ; Encrypted Auto-Found VHDL File               ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd ; alt_sld_fab ;
+; db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; yes             ; Encrypted Auto-Found SystemVerilog HDL File  ; C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv   ; alt_sld_fab ;
+; sld_jtag_hub.vhd                                                   ; yes             ; Encrypted Megafunction                       ; c:/intelfpga/18.1/quartus/libraries/megafunctions/sld_jtag_hub.vhd                                                      ;             ;
++--------------------------------------------------------------------+-----------------+----------------------------------------------+-------------------------------------------------------------------------------------------------------------------------+-------------+
 
 
 +------------------------------------------------------------------------+
@@ -383,26 +392,61 @@ Encoding Type:  One-Hot
 +------------------+-------------+-----------------+------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                      ;
-+----------------------------------------------------------------+--------------------------------------------------------+
-; Register name                                                  ; Reason for Removal                                     ;
-+----------------------------------------------------------------+--------------------------------------------------------+
-; servo_controller:u_servo|min_angle_reg[16..31]                 ; Stuck at GND due to stuck port data_in                 ;
-; servo_controller:u_servo|min_angle_reg[14,15]                  ; Stuck at VCC due to stuck port data_in                 ;
-; servo_controller:u_servo|min_angle_reg[10..13]                 ; Stuck at GND due to stuck port data_in                 ;
-; servo_controller:u_servo|min_angle_reg[8,9]                    ; Stuck at VCC due to stuck port data_in                 ;
-; servo_controller:u_servo|min_angle_reg[7]                      ; Stuck at GND due to stuck port data_in                 ;
-; servo_controller:u_servo|min_angle_reg[6]                      ; Stuck at VCC due to stuck port data_in                 ;
-; servo_controller:u_servo|min_angle_reg[5]                      ; Stuck at GND due to stuck port data_in                 ;
-; servo_controller:u_servo|min_angle_reg[4]                      ; Stuck at VCC due to stuck port data_in                 ;
-; servo_controller:u_servo|min_angle_reg[0..3]                   ; Stuck at GND due to stuck port data_in                 ;
-; servo_controller:u_servo|max_angle_reg[1..4,6,8,11..14,17..31] ; Merged with servo_controller:u_servo|max_angle_reg[0]  ;
-; servo_controller:u_servo|max_angle_reg[5,7,9,10,15]            ; Merged with servo_controller:u_servo|max_angle_reg[16] ;
-; servo_controller:u_servo|max_angle_reg[0]                      ; Stuck at GND due to stuck port data_in                 ;
-; servo_controller:u_servo|max_angle_reg[16]                     ; Stuck at VCC due to stuck port data_in                 ;
-; Total Number of Removed Registers = 64                         ;                                                        ;
-+----------------------------------------------------------------+--------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                                                                                                                                                                            ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                                                                                           ; Reason for Removal                                                                                                                                                                                  ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; servo_controller:u_servo|min_angle_reg[16..31]                                                                                                                                          ; Stuck at GND due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|min_angle_reg[14,15]                                                                                                                                           ; Stuck at VCC due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|min_angle_reg[10..13]                                                                                                                                          ; Stuck at GND due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|min_angle_reg[8,9]                                                                                                                                             ; Stuck at VCC due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|min_angle_reg[7]                                                                                                                                               ; Stuck at GND due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|min_angle_reg[6]                                                                                                                                               ; Stuck at VCC due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|min_angle_reg[5]                                                                                                                                               ; Stuck at GND due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|min_angle_reg[4]                                                                                                                                               ; Stuck at VCC due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|min_angle_reg[0..3]                                                                                                                                            ; Stuck at GND due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|max_angle_reg[1..4,6,8,11..14,17..31]                                                                                                                          ; Merged with servo_controller:u_servo|max_angle_reg[0]                                                                                                                                               ;
+; servo_controller:u_servo|max_angle_reg[5,7,9,10,15]                                                                                                                                     ; Merged with servo_controller:u_servo|max_angle_reg[16]                                                                                                                                              ;
+; servo_controller:u_servo|max_angle_reg[0]                                                                                                                                               ; Stuck at GND due to stuck port data_in                                                                                                                                                              ;
+; servo_controller:u_servo|max_angle_reg[16]                                                                                                                                              ; Stuck at VCC due to stuck port data_in                                                                                                                                                              ;
+; Total Number of Removed Registers = 64                                                                                                                                                  ;                                                                                                                                                                                                     ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|segment_shift_clk_ena                                                       ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_enable_delayed                                                 ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[0]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[0]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[1]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[1]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[2]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[2]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[3]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[3]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[4]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[4]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[5]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[5]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[6]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[6]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[7]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[7]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[8]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[8]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[9]  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[9]  ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:offset_count[10] ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|\buffer_manager:next_address[10] ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[0]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[0]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[1]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[1]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[2]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[2]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[3]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[3]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[4]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[4]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[5]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[5]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[6]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[6]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[7]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[7]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[8]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[8]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[9]                                                   ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[9]                                             ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|current_offset_delayed[10]                                                  ; Merged with sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|buffer_write_address_delayed[10]                                            ;
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|serial_crc_16:\tdo_crc_gen:tdo_crc_calc|lfsr[13..15]                        ; Stuck at GND due to stuck port data_in                                                                                                                                                              ;
+; Total Number of Removed Registers = 26                                                                                                                                                  ;                                                                                                                                                                                                     ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                                                                                                                                                                                              ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                                                                                ; Reason for Removal        ; Registers Removed due to This Register                                                                                                                        ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|serial_crc_16:\tdo_crc_gen:tdo_crc_calc|lfsr[15] ; Stuck at GND              ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|serial_crc_16:\tdo_crc_gen:tdo_crc_calc|lfsr[14], ;
+;                                                                                                                                                              ; due to stuck port data_in ; sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|serial_crc_16:\tdo_crc_gen:tdo_crc_calc|lfsr[13]  ;
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -449,13 +493,28 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                              ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |servo_top|servo_controller:u_servo|Selector2 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                                                                                                                                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                                                                                                                                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |servo_top|servo_controller:u_servo|Selector2                                                                                                                                                                                                                                                                                                                       ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|tdo_crc_val_shift_reg[12]                                                                                                                                                                                                                    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|tdo_crc_val_shift_reg[13]                                                                                                                                                                                                                    ;
+; 3:1                ; 13 bits   ; 26 LEs        ; 0 LEs                ; 26 LEs                 ; Yes        ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|serial_crc_16:\tdo_crc_gen:tdo_crc_calc|lfsr[8]                                                                                                                                                                                              ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|tdo_crc_len_reg[31]                                                                                                                                                                                                                          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_rom_sr:crc_rom_sr|word_counter[1]                                                                                                                                                                                                        ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 12 LEs               ; 12 LEs                 ; Yes        ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|counter[10]                                                                                                                                                                                       ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 28 LEs               ; 4 LEs                  ; Yes        ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_rom_sr:crc_rom_sr|WORD_SR[1]                                                                                                                                                                                                             ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |servo_top|sld_signaltap:auto_signaltap_0|sld_signaltap_impl:sld_signaltap_body|sld_signaltap_implb:sld_signaltap_body|sld_buffer_manager:sld_buffer_manager_inst|offset_count                                                                                                                                                                                      ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|irsr_reg[1]                             ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[0]                    ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|hub_minor_ver_reg[1]                    ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|mixer_addr_reg_internal[2]              ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg|word_counter[0] ;
+; 34:1               ; 4 bits    ; 88 LEs        ; 64 LEs               ; 24 LEs                 ; Yes        ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|design_hash_reg[0]                      ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 32 LEs               ; 20 LEs                 ; Yes        ; |servo_top|sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|sld_rom_sr:hub_info_reg|WORD_SR[0]      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------------------------------+
@@ -600,13 +659,80 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 
 
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
++--------------------------------------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Partition sld_signaltap:auto_signaltap_0 ;
++-----------------------+--------------------------------------------------------+
+; Type                  ; Count                                                  ;
++-----------------------+--------------------------------------------------------+
+; arriav_ff             ; 661                                                    ;
+;     CLR               ; 6                                                      ;
+;     CLR SLD           ; 70                                                     ;
+;     ENA               ; 75                                                     ;
+;     ENA CLR           ; 121                                                    ;
+;     ENA CLR SCLR      ; 34                                                     ;
+;     ENA SCLR          ; 35                                                     ;
+;     ENA SCLR SLD      ; 33                                                     ;
+;     ENA SLD           ; 36                                                     ;
+;     SCLR SLD          ; 10                                                     ;
+;     plain             ; 241                                                    ;
+; arriav_lcell_comb     ; 267                                                    ;
+;     arith             ; 91                                                     ;
+;         0 data inputs ; 4                                                      ;
+;         1 data inputs ; 86                                                     ;
+;         2 data inputs ; 1                                                      ;
+;     normal            ; 176                                                    ;
+;         0 data inputs ; 2                                                      ;
+;         1 data inputs ; 12                                                     ;
+;         2 data inputs ; 10                                                     ;
+;         3 data inputs ; 11                                                     ;
+;         4 data inputs ; 20                                                     ;
+;         5 data inputs ; 52                                                     ;
+;         6 data inputs ; 69                                                     ;
+; boundary_port         ; 214                                                    ;
+; stratixv_ram_block    ; 26                                                     ;
+;                       ;                                                        ;
+; Max LUT depth         ; 4.10                                                   ;
+; Average LUT depth     ; 1.31                                                   ;
++-----------------------+--------------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Partition sld_hub:auto_hub ;
++-----------------------+------------------------------------------+
+; Type                  ; Count                                    ;
++-----------------------+------------------------------------------+
+; arriav_ff             ; 91                                       ;
+;     CLR               ; 4                                        ;
+;     ENA               ; 30                                       ;
+;     ENA CLR           ; 24                                       ;
+;     ENA CLR SLD       ; 10                                       ;
+;     SCLR              ; 7                                        ;
+;     plain             ; 16                                       ;
+; arriav_lcell_comb     ; 92                                       ;
+;     normal            ; 92                                       ;
+;         0 data inputs ; 1                                        ;
+;         1 data inputs ; 4                                        ;
+;         2 data inputs ; 19                                       ;
+;         3 data inputs ; 15                                       ;
+;         4 data inputs ; 17                                       ;
+;         5 data inputs ; 25                                       ;
+;         6 data inputs ; 11                                       ;
+; boundary_port         ; 107                                      ;
+;                       ;                                          ;
+; Max LUT depth         ; 3.00                                     ;
+; Average LUT depth     ; 1.33                                     ;
++-----------------------+------------------------------------------+
+
+
++-----------------------------------------------+
+; Elapsed Time Per Partition                    ;
++--------------------------------+--------------+
+; Partition Name                 ; Elapsed Time ;
++--------------------------------+--------------+
+; sld_signaltap:auto_signaltap_0 ; 00:00:00     ;
+; sld_hub:auto_hub               ; 00:00:00     ;
+; Top                            ; 00:00:00     ;
++--------------------------------+--------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -707,43 +833,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Oct 18 19:04:32 2026
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Mon Oct 19 14:08:11 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE1_SoC_Lab4 -c DE1_SoC_Lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file servo_controller.vhd
-    Info (12022): Found design unit 1: servo_controller-arch File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 22
-    Info (12023): Found entity 1: servo_controller File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 5
+    Info (12022): Found design unit 1: servo_controller-arch File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 22
+    Info (12023): Found entity 1: servo_controller File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file servo_top.vhd
-    Info (12022): Found design unit 1: servo_top-top File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 14
-    Info (12023): Found entity 1: servo_top File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 5
+    Info (12022): Found design unit 1: servo_top-top File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 14
+    Info (12023): Found entity 1: servo_top File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 5
 Info (12127): Elaborating entity "servo_top" for the top level hierarchy
-Info (12128): Elaborating entity "servo_controller" for hierarchy "servo_controller:u_servo" File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 31
-Warning (10631): VHDL Process Statement warning at servo_controller.vhd(48): inferring latch(es) for signal or variable "pulse_width", which holds its previous value in one or more paths through the process File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
-Info (10041): Inferred latch for "pulse_width[0]" at servo_controller.vhd(48) File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
-Info (10041): Inferred latch for "pulse_width[1]" at servo_controller.vhd(48) File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
+Info (12128): Elaborating entity "servo_controller" for hierarchy "servo_controller:u_servo" File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at servo_controller.vhd(48): inferring latch(es) for signal or variable "pulse_width", which holds its previous value in one or more paths through the process File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
+Info (10041): Inferred latch for "pulse_width[0]" at servo_controller.vhd(48) File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
+Info (10041): Inferred latch for "pulse_width[1]" at servo_controller.vhd(48) File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_controller.vhd Line: 48
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ih84.tdf
-    Info (12023): Found entity 1: altsyncram_ih84 File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/altsyncram_ih84.tdf Line: 27
+    Info (12023): Found entity 1: altsyncram_ih84 File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/altsyncram_ih84.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_dlc.tdf
-    Info (12023): Found entity 1: mux_dlc File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/mux_dlc.tdf Line: 22
+    Info (12023): Found entity 1: mux_dlc File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/mux_dlc.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_vnf.tdf
-    Info (12023): Found entity 1: decode_vnf File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/decode_vnf.tdf Line: 22
+    Info (12023): Found entity 1: decode_vnf File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/decode_vnf.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_39i.tdf
-    Info (12023): Found entity 1: cntr_39i File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_39i.tdf Line: 27
+    Info (12023): Found entity 1: cntr_39i File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_39i.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_d9c.tdf
-    Info (12023): Found entity 1: cmpr_d9c File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_d9c.tdf Line: 22
+    Info (12023): Found entity 1: cmpr_d9c File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_d9c.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_22j.tdf
-    Info (12023): Found entity 1: cntr_22j File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_22j.tdf Line: 25
+    Info (12023): Found entity 1: cntr_22j File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_22j.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_09i.tdf
-    Info (12023): Found entity 1: cntr_09i File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_09i.tdf Line: 27
+    Info (12023): Found entity 1: cntr_09i File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_09i.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_kri.tdf
-    Info (12023): Found entity 1: cntr_kri File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_kri.tdf Line: 27
+    Info (12023): Found entity 1: cntr_kri File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cntr_kri.tdf Line: 27
 Info (12021): Found 1 design units, including 1 entities, in source file db/cmpr_99c.tdf
-    Info (12023): Found entity 1: cmpr_99c File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_99c.tdf Line: 22
+    Info (12023): Found entity 1: cmpr_99c File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/cmpr_99c.tdf Line: 22
 Info (12033): Analysis and Synthesis generated Signal Tap or debug node instance "auto_signaltap_0"
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2026.10.18.19:04:46 Progress: Loading sld57baccdf/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2026.10.19.14:08:25 Progress: Loading sld57baccdf/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -754,80 +880,82 @@ Info (11172): Ident: "alt_sld_fab" instantiated altera_connection_identification
 Info (11172): Alt_sld_fab: Done "alt_sld_fab" with 6 modules, 6 files
 Info (11171): Finished IP generation for the debug fabric: alt_sld_fab.
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/alt_sld_fab.v
-    Info (12023): Found entity 1: alt_sld_fab File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/alt_sld_fab.v Line: 9
+    Info (12023): Found entity 1: alt_sld_fab File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/alt_sld_fab.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_ident File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_ident.sv Line: 33
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_presplit File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_presplit.sv Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd
-    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
+    Info (12022): Found design unit 1: alt_sld_fab_alt_sld_fab_sldfabric-rtl File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 102
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_sldfabric File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_sldfabric.vhd Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
-    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
+    Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/db/ip/sld57baccdf/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "GPIO_0[1]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[2]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[3]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[4]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[5]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[6]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[7]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[8]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[9]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[10]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[11]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[12]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[13]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[14]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[15]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[16]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[17]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[18]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[19]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[20]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[21]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[22]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[23]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[24]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[25]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[26]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[27]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[28]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[29]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[30]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[31]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[32]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[33]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[34]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "GPIO_0[35]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
-    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
-    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
-    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
-    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
-    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
-    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "GPIO_0[1]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[2]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[3]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[4]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[5]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[6]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[7]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[8]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[9]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[10]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[11]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[12]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[13]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[14]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[15]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[16]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[17]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[18]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[19]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[20]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[21]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[22]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[23]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[24]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[25]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[26]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[27]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[28]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[29]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[30]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[31]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[32]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[33]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[34]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "GPIO_0[35]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 9
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 10
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
+Info (286031): Timing-Driven Synthesis is running on partition "sld_signaltap:auto_signaltap_0"
+Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub"
 Critical Warning (35025): Partially connected in-system debug instance "auto_signaltap_0" to 81 of its 85 required data inputs, trigger inputs, acquisition clocks, and dynamic pins.  There were 0 illegal, 0 inaccessible, and 4 missing sources or connections.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 3 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
-    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
-    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/jeb6166/Downloads/CPET561_Labs/DE1_SoC_Lab4/servo_top.vhd Line: 8
 Info (21057): Implemented 1084 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 8 input pins
     Info (21059): Implemented 47 output pins
     Info (21061): Implemented 1002 logic cells
     Info (21064): Implemented 26 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 4946 megabytes
-    Info: Processing ended: Sun Oct 18 19:04:56 2026
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:40
+    Info: Peak virtual memory: 4956 megabytes
+    Info: Processing ended: Mon Oct 19 14:08:34 2026
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:44
 
 

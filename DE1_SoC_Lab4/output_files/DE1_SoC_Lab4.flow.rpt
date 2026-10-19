@@ -1,6 +1,6 @@
 Flow report for DE1_SoC_Lab4
-Sun Oct 18 19:06:52 2026
-Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Mon Oct 19 14:10:30 2026
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
 
 
 ---------------------
@@ -37,29 +37,29 @@ refer to the applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Sun Oct 18 19:06:42 2026       ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                   ; DE1_SoC_Lab4                                ;
-; Top-level Entity Name           ; servo_top                                   ;
-; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CSEMA5F31C6                                ;
-; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 383 / 32,070 ( 1 % )                        ;
-; Total registers                 ; 810                                         ;
-; Total pins                      ; 51 / 457 ( 11 % )                           ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 53,248 / 4,065,280 ( 1 % )                  ;
-; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0 / 6 ( 0 % )                               ;
-; Total DLLs                      ; 0 / 4 ( 0 % )                               ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------------+
+; Flow Summary                                                                      ;
++---------------------------------+-------------------------------------------------+
+; Flow Status                     ; Successful - Mon Oct 19 14:10:18 2026           ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                   ; DE1_SoC_Lab4                                    ;
+; Top-level Entity Name           ; servo_top                                       ;
+; Family                          ; Cyclone V                                       ;
+; Device                          ; 5CSEMA5F31C6                                    ;
+; Timing Models                   ; Final                                           ;
+; Logic utilization (in ALMs)     ; 383 / 32,070 ( 1 % )                            ;
+; Total registers                 ; 810                                             ;
+; Total pins                      ; 51 / 457 ( 11 % )                               ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 53,248 / 4,065,280 ( 1 % )                      ;
+; Total DSP Blocks                ; 0 / 87 ( 0 % )                                  ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0 / 6 ( 0 % )                                   ;
+; Total DLLs                      ; 0 / 4 ( 0 % )                                   ;
++---------------------------------+-------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/18/2026 19:04:33 ;
+; Start date & time ; 10/19/2026 14:08:12 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE1_SoC_Lab4        ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                     ; Value                                                                                                                      ; Default Value ; Entity Name ; Section Id       ;
 +-------------------------------------+----------------------------------------------------------------------------------------------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID               ; 127913726130247.179236467222696                                                                                            ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID               ; 194042950430427.179243329113364                                                                                            ; --            ; --          ; --               ;
 ; ENABLE_SIGNALTAP                    ; On                                                                                                                         ; --            ; --          ; --               ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                                                                                                         ; --            ; --          ; --               ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                                                                                                          ; --            ; --          ; --               ;
@@ -124,11 +124,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:23     ; 1.0                     ; 4946 MB             ; 00:00:39                           ;
-; Fitter               ; 00:01:37     ; 1.1                     ; 7353 MB             ; 00:08:01                           ;
-; Assembler            ; 00:00:07     ; 1.0                     ; 4849 MB             ; 00:00:07                           ;
-; Timing Analyzer      ; 00:00:09     ; 1.4                     ; 5285 MB             ; 00:00:11                           ;
-; Total                ; 00:02:16     ; --                      ; --                  ; 00:08:58                           ;
+; Analysis & Synthesis ; 00:00:22     ; 1.0                     ; 4956 MB             ; 00:00:42                           ;
+; Fitter               ; 00:01:35     ; 1.0                     ; 7302 MB             ; 00:07:27                           ;
+; Assembler            ; 00:00:06     ; 1.0                     ; 4849 MB             ; 00:00:06                           ;
+; Timing Analyzer      ; 00:00:11     ; 1.2                     ; 5269 MB             ; 00:00:12                           ;
+; Total                ; 00:02:14     ; --                      ; --                  ; 00:08:27                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -137,10 +137,10 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-PBH5KJQ  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-PBH5KJQ  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; DESKTOP-PBH5KJQ  ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; DESKTOP-PBH5KJQ  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; gol-1360-16      ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; gol-1360-16      ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; gol-1360-16      ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; gol-1360-16      ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

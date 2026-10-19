@@ -8,86 +8,116 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/Jacob/Downloads/CPET561_Labs/DE1_SoC_Lab4
-Eservo_controller
-Z1 w1792276022
-Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
-Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
-Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+T_opt
+!s110 1792436017
+VD9PRNSaZi=9Ck][9@H6ek0
+04 16 4 work servo_controller arch 2
+Z1 04 19 3 work servo_controller_tb sim 1
+=1-b07b2521aedb-6ad66731-1fc-1b30
+Z2 o-quiet -auto_acc_if_foreign -work work
+Z3 tCvgOpt 0
+n@_opt
+Z4 OL;O;2019.2;69
 R0
-Z5 8servo_controller.vhd
-Z6 Fservo_controller.vhd
+T_opt1
+!s110 1792436916
+Ve]W<6V`?SD9<;0HYEX_j>2
+R1
+=1-b07b2521aedb-6ad66ab4-2d9-3b3c
+R2
+R3
+n@_opt1
+R4
+R0
+T_opt2
+!s110 1792436939
+V6:=XF31e=i5z<Y3DPX@X_3
+R1
+=1-b07b2521aedb-6ad66acb-229-3b98
+o-quiet -auto_acc_if_foreign -work work +acc
+R3
+n@_opt2
+R4
+Eservo_controller
+Z5 w1792276022
+Z6 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z9 8servo_controller.vhd
+Z10 Fservo_controller.vhd
 l0
 L5
 VkJNHkIVK5C:IW@3DNXCgN2
 !s100 e6[cmhz5FzYzDkQz]lo@02
-Z7 OV;C;10.5b;63
+Z11 OV;C;10.5b;63
 33
-Z8 !s110 1792280394
+Z12 !s110 1792280394
 !i10b 1
-Z9 !s108 1792280394.000000
-Z10 !s90 -reportprogress|300|-2008|servo_controller.vhd|servo_controller_tb.vhd|
-Z11 !s107 servo_controller_tb.vhd|servo_controller.vhd|
+Z13 !s108 1792280394.000000
+Z14 !s90 -reportprogress|300|-2008|servo_controller.vhd|servo_controller_tb.vhd|
+Z15 !s107 servo_controller_tb.vhd|servo_controller.vhd|
 !i113 1
-Z12 o-2008
-Z13 tExplicit 1 CvgOpt 0
+Z16 o-2008
+Z17 tExplicit 1 CvgOpt 0
 Aarch
-R2
-R3
-R4
-Z14 DEx4 work 16 servo_controller 0 22 kJNHkIVK5C:IW@3DNXCgN2
+R6
+R7
+R8
+Z18 DEx4 work 16 servo_controller 0 22 kJNHkIVK5C:IW@3DNXCgN2
 l41
 L22
 VjJm`od05iHLAObW;E4cNl1
 !s100 REz1o^7?fM@VG66GVRg7>2
-R7
-33
-R8
-!i10b 1
-R9
-R10
 R11
-!i113 1
+33
 R12
+!i10b 1
 R13
+R14
+R15
+!i113 1
+R16
+R17
 Eservo_controller_tb
-Z15 w1792100710
-R2
-R3
-R4
+Z19 w1792100710
+R6
+R7
+R8
 R0
-Z16 8servo_controller_tb.vhd
-Z17 Fservo_controller_tb.vhd
+Z20 8servo_controller_tb.vhd
+Z21 Fservo_controller_tb.vhd
 l0
 L13
 VM3oM`_b=9jzURU7k^5F<d3
 !s100 ;XIVUjPiF>8C]OhW2:gaU2
-R7
-33
-R8
-!i10b 1
-R9
-R10
 R11
-!i113 1
+33
 R12
+!i10b 1
 R13
-Asim
 R14
-R2
-R3
-R4
+R15
+!i113 1
+R16
+R17
+Asim
+R18
+R6
+R7
+R8
 DEx4 work 19 servo_controller_tb 0 22 M3oM`_b=9jzURU7k^5F<d3
 l32
 L16
 VOfK9f[>0<8b=Xn^^`BM>`0
 !s100 ]bH?Gcg[_f]c0gGLo?U;Q2
-R7
-33
-R8
-!i10b 1
-R9
-R10
 R11
-!i113 1
+33
 R12
+!i10b 1
 R13
+R14
+R15
+!i113 1
+R16
+R17

@@ -48,7 +48,7 @@ begin
 			hex2_export        => HEX2,
 			hex4_export        => HEX4,
 			hex5_export        => HEX5,
-      out_wave_ext_addr  => GPIO_0(0)
+			out_wave_ext_addr  => GPIO_0(0)
 		);
   
   HEX3 <= (others => '1');
