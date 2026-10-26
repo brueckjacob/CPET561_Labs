@@ -96,7 +96,7 @@ int main(void)
   *(key_ptr + PIO_IRQ_MASK) = KEY3_MASK | KEY2_MASK;
   
   alt_ic_isr_register(KEY_IRQ_IC_ID,   KEY_IRQ,   key_isr, NULL, NULL);
-  alt_ic_isr_register(SERVO_IRQ_IC_ID, SERVO_IRQ, servo_isr,      NULL, NULL);
+  alt_ic_isr_register(SERVO_IRQ_IC_ID, SERVO_IRQ, servo_isr, NULL, NULL);
   
   while (1) {
     if (display_update) {
